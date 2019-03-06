@@ -2,6 +2,7 @@ html,
 body {
 	width: 100%;
 	height: 100%;
+	min-width: 345px;
 }
 
 body {
@@ -54,12 +55,18 @@ img {
 .container {
 	width: 85%;
 	max-width: 960px;
-	margin: 0 auto;
+	margin: 10px auto;
 	position: relative;
 }
 
 section {
-	padding: 100px 0;
+	margin: 20px 0;
+	padding: 10px 10px;
+}
+
+.wapper {
+	display: flex;
+	flex-flow: column wrap;
 }
 
 #header {
@@ -70,18 +77,50 @@ section {
 	background-color: #222;
 	z-index: 100;
 	margin-bottom: 30px;
+	/* 新增 */
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
 }
 
-#logo {
-	float: left;
+.menu-button {
+	float: right;
+	font-size: 25px;
+	line-height: 40px;
+	color: #fff;
+	background: transparent;
+	padding: 0 0 0 15px;
+	border: 0;
+}
+
+.menu-button-checkbox {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 52px;
+	height: 40px;
+	margin: 0 -15px 0 0;
+	opacity: 0;
+}
+
+.menu-button-checkbox:checked~nav .nav {
+	display: block;
 }
 
 .nav {
-	float: right;
+	display: none;
+	position: fixed;
+	top: 40px;
+	left: 0;
+	width: 100%;
+	background-color: #222;
 }
 
 .nav li {
-	display: inline-block;
+	display: block;
+	text-align: center;
+	padding: 7px 0;
+	border-bottom: 1px solid #333;
 }
 
 .nav li a {
@@ -91,22 +130,42 @@ section {
 	padding: 10px 12px;
 }
 
+#logo {
+	float: left;
+}
+
 /* Homepage Background Image Start */
 
 .home-bg {
-	background-image: url(../css/images/profile.jpg);
+	background-image: url(https://images.unsplash.com/photo-1467745695289-307cecbc3bf1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60);
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	width: 100%;
 	height: 100%;
+	min-height: 514px;
+}
+
+#home {
+	padding: 100px 0;
+}
+
+.overlay1 {
+	background: rgba(0, 0, 0, 0.5);
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	min-height: 514px;
+	min-width: 345px;
 }
 
 .container-table {
-	display: table;
-	width: 100%;
-	height: 100%;
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	padding-top: 100px;
 	position: relative;
 }
 
@@ -119,7 +178,7 @@ section {
 .container-table-cell h1 {
 	color: #fff;
 	text-transform: capitalize;
-	font-size: 54px;
+	font-size: 30px;
 	margin-bottom: 40px;
 }
 
@@ -133,15 +192,6 @@ section {
 	margin-right: 10px;
 }
 
-.overlay {
-	background: rgba(0, 0, 0, 0.5);
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-}
-
 /* Homepage Background Image End */
 
 /* Homepage About Me Start */
@@ -151,24 +201,26 @@ section {
 }
 
 .about-me h2 {
-	margin-bottom: 75px;
+	margin: 20px auto;
 	text-align: center;
-	font-size: 40px;
-	line-height: 50px;
+	font-size: 20px;
+	line-height: 15px;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 }
 
-.col-left,
-.col-right {
-	float: left;
-	width: 50%;
-	padding: 0 15px;
+/* 新增 */
+
+.summary {
+	display: flex;
+	flex-flow: column wrap;
 }
 
 .personal-info h4 {
+
 	font-size: 15px;
 	letter-spacing: 2px;
+	margin-top: 6px;
 	margin-bottom: 6px;
 	text-transform: capitalize;
 }
@@ -189,14 +241,10 @@ section {
 	text-transform: capitalize;
 }
 
-.button-group,
-#button-cv,
-#button-hire {
-	display: inline-block;
-}
-
-#button-cv {
-	margin-right: 18px;
+.button-group {
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: space-around;
 }
 
 .button-group a {
@@ -204,7 +252,9 @@ section {
 	color: #000;
 	border: 1px solid #333;
 	border-radius: 10px;
+	margin: 5px 0px;
 	padding: 10px 38px;
+	text-align: center;
 	text-transform: capitalize;
 }
 
@@ -235,18 +285,18 @@ section {
 }
 
 .my-service h2 {
-	margin-bottom: 75px;
+	margin: 20px auto;
 	text-align: center;
-	font-size: 40px;
-	line-height: 50px;
+	font-size: 20px;
+	line-height: 15px;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 }
 
 .service-content {
-	float: left;
-	width: 33.3%;
-	padding: 0 20px;
+	display: flex;
+	flex-flow: column wrap;
+	margin-bottom: 20px;
 }
 
 .service-content i {
@@ -278,34 +328,29 @@ section {
 }
 
 .resume h2 {
-	margin-bottom: 75px;
+	margin: 20px auto;
 	text-align: center;
-	font-size: 40px;
-	line-height: 50px;
+	font-size: 20px;
+	line-height: 15px;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 }
 
-.col-summary {
+.resume-summary {
+	display: flex;
+	flex-flow: column wrap;
 	padding-bottom: 16px;
 	border-bottom: 1px solid #767676;
 }
 
-.col-summary:last-child {
+.resume-summary:last-child {
 	border-bottom: 0
 }
 
 h3.resume-subtitle {
 	font-size: 20px;
-	margin-left: 15px;
 	margin-top: 12px;
 	text-transform: capitalize;
-}
-
-.col-summary .col-item {
-	float: left;
-	width: 50%;
-	padding: 0 15px;
 }
 
 .experience-year {
@@ -340,27 +385,40 @@ h3.resume-subtitle {
 /* Homepage Quotes Start */
 
 .quotes {
-	background-image: url(../css/images/abg.jpg);
+	background-image: url(https://images.unsplash.com/photo-1548689377-d56fe5c0cbcf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80);
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	position: relative;
 	width: 100%;
+	min-height: 300px;
+}
+
+.overlay2 {
+	background: rgba(0, 0, 0, 0.5);
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	min-height: 300px;
+	min-width: 345px;
 }
 
 .quote-inner {
 	color: #fff;
 	text-align: center;
+	padding: 60px 5px;
 }
 
 .quote-inner h3 {
-	font-size: 28px;
+	font-size: 24px;
 	text-transform: capitalize;
+	margin: 20px auto;
 }
 
 .quote-inner p {
-	font-size: 14px;
+	font-size: 10px;
 	margin-top: 12px;
 }
 
@@ -384,18 +442,23 @@ h3.resume-subtitle {
 }
 
 .works h2 {
-	margin-bottom: 75px;
+	/* margin-bottom: 75px; */
+	margin: 20px auto;
 	text-align: center;
-	font-size: 40px;
-	line-height: 50px;
+	/* font-size: 40px; */
+	font-size: 20px;
+	line-height: 15px;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 }
 
+.work-items {
+	display: flex;
+	flex-flow: column wrap;
+}
+
 .col-work {
-	float: left;
-	width: 33.33333333333%;
-	padding: 0px 15px;
+	margin: 10px auto;
 }
 
 .col-work a {
@@ -421,30 +484,17 @@ h3.resume-subtitle {
 /* Homepage Contact Start */
 
 .contact h2 {
-	margin-bottom: 75px;
+	margin: 20px auto;
 	text-align: center;
-	font-size: 40px;
-	line-height: 50px;
+	font-size: 20px;
+	line-height: 15px;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 }
 
 .contact-form {
-	widows: 65%;
-	margin: 0 auto;
-	text-align: center;
-}
-
-.contact-form .form-input:first-child,
-.contact-form .form-input:nth-child(2) {
-	float: left;
-	width: 50%;
-	padding: 0 15px;
-}
-
-.contact-form .form-input:nth-child(3) {
-	width: 100%;
-	padding: 0 15px;
+	display: flex;
+	flex-flow: column wrap;
 }
 
 .contact-form .form-style {
@@ -517,3 +567,157 @@ h3.resume-subtitle {
 }
 
 /* Homepage Footer End */
+
+/* 768px RWD CSS */
+
+@media screen and (min-width:768px) {
+
+	/* Navbar 管理 */
+	.menu-button,
+	.menu-button-checkbox {
+		display: none;
+	}
+
+	.nav {
+		display: block;
+		position: static;
+		width: auto;
+		float: right;
+	}
+
+	.nav li {
+		display: inline-block;
+		border-bottom: 0px;
+
+	}
+
+	/* Homepage Background Image Start */
+
+	.container-table {
+		display: table;
+		width: 100%;
+		height: 100%;
+		position: relative;
+	}
+
+	.container-table-cell h1 {
+		font-size: 54px;
+	}
+
+	/* Homepage Background Image End */
+
+	/* Homepage About Me Start */
+
+	.about-me h2,
+	.my-service h2,
+	.resume h2,
+	.works h2,
+	.contact h2 {
+		margin-bottom: 50px;
+		font-size: 40px;
+		line-height: 50px;
+	}
+
+	.summary {
+		display: block;
+	}
+
+	.myPhoto,
+	.myInfo {
+		float: left;
+		width: 50%;
+		padding: 0 15px;
+	}
+
+	.skill {
+		margin: 15px auto;
+	}
+
+	.button-group,
+	#button-cv,
+	#button-hire {
+		display: inline-block;
+	}
+
+	#button-cv {
+		margin-right: 18px;
+	}
+
+	/* Homepage About Me End */
+
+	/* Homepage my-service Start */
+
+	.service-content {
+		float: left;
+		width: 33.3%;
+		padding: 0 20px;
+	}
+
+	/* Homepage my-service End */
+
+	/* Homepage Resume Start */
+
+	.resume-summary {
+		display: block;
+		padding-bottom: 16px;
+		border-bottom: 1px solid #767676;
+	}
+
+	.resume-summary .col-item {
+		float: left;
+		width: 50%;
+		padding: 0 15px;
+	}
+
+	/* Homepage Resume End */
+
+	/* Homepage Quotes Start */
+
+	.quote-inner h3 {
+		font-size: 28px;
+	}
+
+	.quote-inner p {
+		font-size: 14px;
+	}
+
+	/* Homepage Quotes End */
+
+	/* Homepage Works Start */
+
+	.work-items {
+		display: block;
+	}
+
+	.col-work {
+		float: left;
+		width: 33.33333333333%;
+		padding: 0px 15px;
+	}
+
+	/* Homepage Works End */
+
+	/* Homepage Contact Start */
+
+
+	.contact-form {
+		widows: 65%;
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	.contact-form .form-input:first-child,
+	.contact-form .form-input:nth-child(2) {
+		float: left;
+		width: 50%;
+		padding: 0 15px;
+	}
+
+	.contact-form .form-input:nth-child(3) {
+		width: 100%;
+		padding: 0 15px;
+	}
+
+	/* Homepage Contact End */
+
+}
